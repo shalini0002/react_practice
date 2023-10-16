@@ -20,7 +20,7 @@ function Card({username, btnText="visit me"}) {
     <button className="mt-2 inline-flex cursor-pointer bg-black items-center text-sm font-semibold text-white">
      {btnText || "visit me"} →
     </button>
-  </div>
+  </div>S
 </div>
    </>
   )
