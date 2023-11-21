@@ -1,12 +1,13 @@
 import React from "react";
 import { Container, Logo, LogoutBtn } from "../index";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
-  const authStatus = useSelector((state) => state.auth.status);
+  const authStatus = useSelector((state) =>  state.auth.status);
   const navigate = useNavigate();
+  // console.log(item.length);
 
   const navItems = [
     {
@@ -26,15 +27,16 @@ function Header() {
     },
     {
       name: "All Posts",
-      slug: "/all-post",
+      slug: "/all-posts",
       active: authStatus,
     },
     {
-      name: "Add Posts",
+      name: "Add Post",
       slug: "/add-post",
       active: authStatus,
     },
   ];
+
   return (
     <header className="py-3 shadow bg-gray-500">
       <Container>
@@ -44,14 +46,13 @@ function Header() {
               <Logo width="70px" />
             </Link>
           </div>
-          <ul className="flex mi-auto">
+          <ul className="flex ml-auto">
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className="inline-block px-6 py-2 duration-200
-                             hover:bg-blue-100 rounded-full"
+                    className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
                   >
                     {item.name}
                   </button>
